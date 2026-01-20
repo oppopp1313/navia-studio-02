@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Play, Smartphone, Globe, X, ExternalLink, Trophy } from 'lucide-react';
 
 const Portfolio = () => {
-  const [activeTab, setActiveTab] = useState('apps');
+  const [activeTab, setActiveTab] = useState('films');
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   const films = [
