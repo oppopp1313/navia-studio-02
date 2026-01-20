@@ -3,7 +3,7 @@ import { Youtube, MessageCircle, Linkedin, Send } from 'lucide-react';
 
 const Contact = () => {
   const socialLinks = [
-    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/@navia.studio' },
+    { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@NaviaStudio' },
     { name: 'Threads', icon: MessageCircle, href: 'https://www.threads.com/@i.am.aiiivan' },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/ivanyehhhh/' }
   ];
