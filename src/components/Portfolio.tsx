@@ -155,7 +155,7 @@ const Portfolio = () => {
       status: "Live", 
       icon: Globe,
       color: "from-purple-500/20 to-pink-500/20",
-      url: "https://vibby.site/",
+      url: "#",
       image: "https://api.microlink.io/?url=https%3A%2F%2Fvibby.site%2F&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800&viewport.deviceScaleFactor=2"
     },
     { 
@@ -339,6 +339,7 @@ const Portfolio = () => {
             {apps.map((app, index) => {
               const IconComponent = app.icon;
               const isComingSoon = app.status === 'Coming Soon';
+              const isLinkable = app.url && app.url !== '#';
               
               const CardContent = (
                 <>
@@ -368,8 +369,8 @@ const Portfolio = () => {
                       </span>
                     </div>
 
-                    {/* Center Icon on Hover - Only show if not coming soon */}
-                    {!isComingSoon && (
+                    {/* Center Icon on Hover - Only show if linkable */}
+                    {isLinkable && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                         <div className="w-14 h-14 border border-white/20 backdrop-blur-md rounded-full flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform">
                           <IconComponent className="text-white" size={20} />
@@ -383,7 +384,7 @@ const Portfolio = () => {
                       <h3 className="text-xl font-serif text-white group-hover:text-teal-400 transition-colors duration-300">
                         {app.name}
                       </h3>
-                      {!isComingSoon && (
+                      {isLinkable && (
                         <ExternalLink size={14} className="text-zinc-500 group-hover:text-teal-400 transition-colors" />
                       )}
                     </div>
@@ -392,7 +393,7 @@ const Portfolio = () => {
                 </>
               );
 
-              if (isComingSoon) {
+              if (!isLinkable) {
                 return (
                   <div
                     key={index}
