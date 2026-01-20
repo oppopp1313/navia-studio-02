@@ -1,12 +1,23 @@
 
+import { useState } from 'react';
 import { Youtube, MessageCircle, Linkedin, Send } from 'lucide-react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
   const socialLinks = [
     { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@NaviaStudio' },
     { name: 'Threads', icon: MessageCircle, href: 'https://www.threads.com/@i.am.aiiivan' },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/ivanyehhhh/' }
   ];
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`${formData.name} - ${formData.message}`);
+    const body = encodeURIComponent(`From: ${formData.email}\n\n${formData.message}`);
+    window.location.href = `mailto:oppopp1313@gmail.com?subject=${subject}&body=${body}`;
+    setFormData({ name: '', email: '', message: '' });
+  };
 
   return (
     <section id="contact" className="py-32 bg-[#0a0a0a] border-t border-white/5">
@@ -62,36 +73,39 @@ const Contact = () => {
           <div className="lg:w-1/2">
             <div className="bg-white/[0.02] border border-white/5 p-12 lg:p-16 relative">
               <h3 className="text-2xl font-serif text-white mb-10">發送合作請求</h3>
-              <form action="https://formspree.io/oppopp1313@gmail.com" method="POST" className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="relative group">
                   <input
                     type="text"
-                    name="name"
                     required
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700"
                     placeholder="您的姓名"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
                   <label className="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-zinc-500 -translate-y-full opacity-0 group-focus-within:opacity-100 transition-all duration-300">Name</label>
                 </div>
-                
+
                 <div className="relative group">
                   <input
                     type="email"
-                    name="email"
                     required
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700"
                     placeholder="電子郵件"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
                   <label className="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-zinc-500 -translate-y-full opacity-0 group-focus-within:opacity-100 transition-all duration-300">Email</label>
                 </div>
 
                 <div className="relative group">
                   <textarea
-                    name="message"
                     required
                     rows={4}
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700 resize-none"
                     placeholder="專案構思與需求..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />
                   <label className="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-zinc-500 -translate-y-full opacity-0 group-focus-within:opacity-100 transition-all duration-300">Project Details</label>
                 </div>
