@@ -1,111 +1,122 @@
-import React from 'react';
-import { Mail, Youtube, MessageCircle, Linkedin, Send } from 'lucide-react';
+
+import { Youtube, MessageCircle, Linkedin, Send } from 'lucide-react';
 
 const Contact = () => {
   const socialLinks = [
-    { name: 'YouTube', icon: Youtube },
-    { name: 'Threads', icon: MessageCircle },
-    { name: 'LinkedIn', icon: Linkedin }
+    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/@navia.studio' },
+    { name: 'Threads', icon: MessageCircle, href: 'https://threads.net/@navia.studio' },
+    { name: 'LinkedIn', icon: Linkedin, href: '#' }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section id="contact" className="py-32 bg-[#0a0a0a] border-t border-white/5">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Let's Create Together
-          </h2>
-          <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            準備好將您的創意想法轉化為現實嗎？讓我們一起討論您的專案
-          </p>
-        </div>
+        <div className="flex flex-col lg:flex-row gap-24">
+          <div className="lg:w-1/2">
+            <h2 className="text-sm tracking-[0.3em] uppercase text-teal-400 mb-8 font-medium">
+              Contact
+            </h2>
+            <h3 className="text-5xl md:text-7xl font-serif text-white mb-12 leading-tight">
+              Let's craft the <br />
+              <span className="text-zinc-500 italic">Future of Visuals.</span>
+            </h3>
+            
+            <p className="text-xl text-zinc-400 mb-16 max-w-md leading-relaxed">
+              準備好將您的創意想法轉化為現實了嗎？無論是電影感十足的 AI 影像，還是前衛的智能應用，我們都在這裡為您實現。
+            </p>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
-            <div className="bg-gray-900 border border-gray-800 p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">聯繫我們</h3>
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-gray-300 mb-2">姓名</label>
-                  <input
-                    type="text"
-                    className="w-full bg-gray-800 border border-gray-700 px-4 py-3 text-white focus:border-white focus:outline-none transition-colors duration-300"
-                    placeholder="您的姓名"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-300 mb-2">電子郵件</label>
-                  <input
-                    type="email"
-                    className="w-full bg-gray-800 border border-gray-700 px-4 py-3 text-white focus:border-white focus:outline-none transition-colors duration-300"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-300 mb-2">專案需求</label>
-                  <textarea
-                    rows={5}
-                    className="w-full bg-gray-800 border border-gray-700 px-4 py-3 text-white focus:border-white focus:outline-none transition-colors duration-300 resize-none"
-                    placeholder="告訴我們您的專案想法..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-white text-black hover:bg-gray-200 px-8 py-4 font-semibold transition-all duration-300 flex items-center justify-center"
-                >
-                  <Send className="mr-2" size={20} />
-                  發送訊息
-                </button>
-              </form>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="bg-gray-900 border border-gray-800 p-8">
-                <div className="flex items-center mb-4">
-                  <Mail className="text-white mr-3" size={24} />
-                  <h3 className="text-xl font-bold text-white">Email</h3>
-                </div>
+            <div className="space-y-12">
+              <div>
+                <h4 className="text-[10px] tracking-[0.3em] uppercase text-zinc-500 mb-4 font-bold">Email Inquiry</h4>
                 <a
-                  href="mailto:hello@navia.studio"
-                  className="text-gray-300 hover:text-white transition-colors duration-300 text-lg"
+                  href="mailto:oppopp1313@gmail.com"
+                  className="text-2xl md:text-3xl font-serif text-white hover:text-teal-400 transition-colors duration-500 underline underline-offset-8 decoration-white/10"
                 >
-                  hello@navia.studio
+                  oppopp1313@gmail.com
                 </a>
               </div>
 
-              <div className="bg-gray-900 border border-gray-800 p-8">
-                <h3 className="text-xl font-bold text-white mb-6">Follow Us</h3>
-                <div className="flex space-x-6">
+              <div>
+                <h4 className="text-[10px] tracking-[0.3em] uppercase text-zinc-500 mb-4 font-bold">Social Presence</h4>
+                <div className="flex gap-6">
                   {socialLinks.map((link, index) => {
                     const IconComponent = link.icon;
                     return (
                       <a
                         key={index}
-                        href="#"
-                        className="w-12 h-12 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 hover:border-gray-600 transition-all duration-300"
+                        href={link.href}
+                        className="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
                       >
-                        <IconComponent size={20} />
+                        <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover:border-teal-500/30 transition-colors">
+                          <IconComponent size={18} />
+                        </div>
+                        <span className="text-xs tracking-widest uppercase font-medium hidden sm:inline">{link.name}</span>
                       </a>
                     );
                   })}
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div className="bg-gray-900 border border-gray-800 p-8">
-                <h3 className="text-xl font-bold text-white mb-4">專業服務</h3>
-                <ul className="text-gray-400 space-y-2">
-                  <li>• AI 影像製作與短片創作</li>
-                  <li>• 智能應用程式開發</li>
-                  <li>• 數據分析與 AI 導入諮詢</li>
-                  <li>• 品牌敘事與內容設計</li>
-                </ul>
-              </div>
+          <div className="lg:w-1/2">
+            <div className="bg-white/[0.02] border border-white/5 p-12 lg:p-16 relative">
+              <h3 className="text-2xl font-serif text-white mb-10">發送合作請求</h3>
+              <form action="https://formspree.io/oppopp1313@gmail.com" method="POST" className="space-y-8">
+                <div className="relative group">
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700"
+                    placeholder="您的姓名"
+                  />
+                  <label className="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-zinc-500 -translate-y-full opacity-0 group-focus-within:opacity-100 transition-all duration-300">Name</label>
+                </div>
+                
+                <div className="relative group">
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700"
+                    placeholder="電子郵件"
+                  />
+                  <label className="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-zinc-500 -translate-y-full opacity-0 group-focus-within:opacity-100 transition-all duration-300">Email</label>
+                </div>
+
+                <div className="relative group">
+                  <textarea
+                    name="message"
+                    required
+                    rows={4}
+                    className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700 resize-none"
+                    placeholder="專案構思與需求..."
+                  />
+                  <label className="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-zinc-500 -translate-y-full opacity-0 group-focus-within:opacity-100 transition-all duration-300">Project Details</label>
+                </div>
+
+                <button
+                  type="submit"
+                  className="group relative inline-flex items-center justify-center px-10 py-5 bg-white text-black font-bold tracking-widest uppercase text-xs overflow-hidden transition-all duration-300"
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    啟動對話 <Send size={14} />
+                  </span>
+                  <div className="absolute inset-0 bg-teal-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                </button>
+              </form>
             </div>
           </div>
         </div>
+
+        <footer className="mt-40 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-zinc-600 text-[10px] tracking-[0.3em] uppercase font-bold">
+          <p>© 2026 NAVIA STUDIO. ALL RIGHTS RESERVED.</p>
+          <div className="flex gap-12">
+            <a href="#" className="hover:text-teal-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-teal-400 transition-colors">Terms of Service</a>
+          </div>
+        </footer>
       </div>
     </section>
   );

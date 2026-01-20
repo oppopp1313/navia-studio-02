@@ -10,7 +10,8 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-x-hidden">
+      <div className="grain-overlay" />
       <Navigation />
       <Hero />
       <About />

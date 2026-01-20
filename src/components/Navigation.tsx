@@ -22,22 +22,24 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-black/90 backdrop-blur-lg border-b border-gray-800' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? 'py-4' : 'py-8'
     }`}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          <div className="text-2xl font-bold text-white">
-            Navia Studio
+        <div className={`flex items-center justify-between transition-all duration-500 ${
+          scrolled ? 'bg-black/40 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full' : ''
+        }`}>
+          <div className="text-xl font-bold tracking-tighter text-white">
+            NAVIA STUDIO
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-8">
+          <div className="hidden lg:flex items-center space-x-10">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-gray-400 hover:text-white transition-colors duration-200 font-medium"
+                className="text-sm text-gray-400 hover:text-white transition-all duration-300 font-medium tracking-widest uppercase"
               >
                 {item.label}
               </a>
@@ -47,20 +49,26 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-white p-2 hover:bg-white/5 rounded-full transition-colors"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden bg-black/95 backdrop-blur-lg rounded-lg mt-2 p-4 border border-gray-800">
+          <div className="lg:hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-40 flex flex-col items-center justify-center space-y-8">
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="absolute top-8 right-8 text-white p-2"
+            >
+              <X size={32} />
+            </button>
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="block py-3 text-gray-400 hover:text-white transition-colors duration-200"
+                className="text-3xl font-serif text-gray-400 hover:text-white transition-all duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

@@ -3,71 +3,60 @@ import { MapPin, GraduationCap, Globe } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-gray-900">
+    <section id="about" className="py-32 bg-[#0a0a0a] relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            About
-          </h2>
-          <div className="w-24 h-1 bg-white mx-auto"></div>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
-            <p className="text-lg text-gray-300 leading-relaxed">
-              數位行銷 7 年 → 數據分析主管 → 創業。結合 LLM、影像模型與資料能力，將概念轉為影像與產品。
+        <div className="flex flex-col lg:flex-row gap-20">
+          <div className="lg:w-1/3">
+            <h2 className="text-sm tracking-[0.3em] uppercase text-teal-400 mb-8 font-medium">
+              Introduction
+            </h2>
+            <p className="text-4xl md:text-5xl font-serif text-white leading-tight">
+              從數據到創意，<br />
+              <span className="text-zinc-500">跨越維度的敘事者。</span>
             </p>
-            
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-gray-800 p-6 border border-gray-700">
-                <div className="flex items-center mb-3">
-                  <MapPin className="text-white mr-2" size={20} />
-                  <h3 className="text-white font-semibold">位置</h3>
-                </div>
-                <p className="text-gray-300">Taichung, Taiwan</p>
-              </div>
-
-              <div className="bg-gray-800 p-6 border border-gray-700">
-                <div className="flex items-center mb-3">
-                  <GraduationCap className="text-white mr-2" size={20} />
-                  <h3 className="text-white font-semibold">學歷</h3>
-                </div>
-                <p className="text-gray-300">國立中興大學</p>
-              </div>
-            </div>
-
-            <div className="bg-gray-800 p-6 border border-gray-700">
-              <div className="flex items-center mb-4">
-                <Globe className="text-white mr-2" size={20} />
-                <h3 className="text-white font-semibold">Languages</h3>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                {['中文', 'English', '日本語(learning)'].map((lang, index) => (
-                  <span
-                    key={index}
-                    className="bg-gray-700 text-gray-300 px-3 py-1 text-sm border border-gray-600"
-                  >
-                    {lang}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-white mb-6">Roles & Expertise</h3>
-            <div className="space-y-4">
-              {['Founder', 'Creative Lead', 'AI Developer', 'Data Lead (ex)'].map((role, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-800 p-4 border-l-4 border-white hover:bg-gray-700 transition-all duration-300"
-                >
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-white mr-4"></div>
-                    <span className="text-white font-medium">{role}</span>
+          <div className="lg:w-2/3 space-y-16">
+            <div className="max-w-2xl">
+              <p className="text-xl text-zinc-300 leading-relaxed mb-8">
+                數位行銷 7 年經驗轉化為數據分析主管，最終投身 AI 創意創業。
+                我們不僅是在使用工具，更是在構建未來。結合大語言模型、尖端影像生成與深度數據洞察，
+                將抽象的概念具象化為可感知的視覺饗宴與實用產品。
+              </p>
+              
+              <div className="grid sm:grid-cols-2 gap-12 mt-16">
+                <div>
+                  <h3 className="text-xs tracking-widest uppercase text-zinc-500 mb-4 font-bold">Location</h3>
+                  <div className="flex items-center text-white text-lg">
+                    <MapPin className="text-teal-400 mr-3" size={18} />
+                    Taichung, Taiwan
                   </div>
                 </div>
-              ))}
+                <div>
+                  <h3 className="text-xs tracking-widest uppercase text-zinc-500 mb-4 font-bold">Education</h3>
+                  <div className="flex items-center text-white text-lg">
+                    <GraduationCap className="text-teal-400 mr-3" size={18} />
+                    National Chung Hsing University
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-16 border-t border-white/5">
+              <h3 className="text-xs tracking-widest uppercase text-zinc-500 mb-10 font-bold">Roles & Expertise</h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {['Founder', 'Creative Lead', 'AI Developer', 'Data Lead (ex)'].map((role, index) => (
+                  <div
+                    key={index}
+                    className="group flex items-center justify-between p-6 bg-white/5 border border-white/5 hover:border-teal-500/30 transition-all duration-500"
+                  >
+                    <span className="text-white text-lg font-serif italic tracking-wide group-hover:text-teal-400 transition-colors">
+                      {role}
+                    </span>
+                    <div className="w-8 h-px bg-white/20 group-hover:w-12 group-hover:bg-teal-500/50 transition-all duration-500" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
