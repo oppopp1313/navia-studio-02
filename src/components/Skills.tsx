@@ -1,25 +1,28 @@
 import React from 'react';
 import { Code, Brain, Camera, Cog } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Skills = () => {
+  const { t } = useLanguage();
+
   const skillCategories = [
     {
-      title: 'Programming',
+      title: t.skills.categories.programming,
       icon: Code,
       skills: ['Python', 'SQL', 'BigQuery', 'Colab', 'VS Code']
     },
     {
-      title: 'LLM & AI',
+      title: t.skills.categories.ai,
       icon: Brain,
       skills: ['ChatGPT', 'Claude', 'Grok', 'LangChain', 'LangGraph', 'RAG']
     },
     {
-      title: 'Image & Video',
+      title: t.skills.categories.visual,
       icon: Camera,
       skills: ['MidJourney', 'Flux', 'Stable Diffusion', 'Kling', 'Hailuo', 'Runway(Aleph)']
     },
     {
-      title: 'Production',
+      title: t.skills.categories.production,
       icon: Cog,
       skills: ['Prompt Engineering', 'Storyboard', 'AI Video Pipeline']
     }
@@ -30,13 +33,13 @@ const Skills = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mb-24">
           <h2 className="text-sm tracking-[0.3em] uppercase text-teal-400 mb-6 font-medium">
-            Technical Stack
+            {t.skills.tag}
           </h2>
           <h3 className="text-4xl md:text-5xl font-serif text-white mb-8">
-            跨領域的技術驅動力
+            {t.skills.title}
           </h3>
           <p className="text-xl text-zinc-400 max-w-2xl">
-            從底層程式邏輯到頂層 AI 創意執行，我們的工具箱不斷進化，以確保技術始終服務於偉大的靈感。
+            {t.skills.description}
           </p>
         </div>
 

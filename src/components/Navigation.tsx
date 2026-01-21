@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
+import { useLanguage, Language } from '../i18n/LanguageContext';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+  const [showLangMenu, setShowLangMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +17,18 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#services', label: 'Services' },
-    { href: '#portfolio', label: 'Portfolio' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#about', label: t.nav.about },
+    { href: '#services', label: t.nav.services },
+    { href: '#portfolio', label: t.nav.portfolio },
+    { href: '#skills', label: t.nav.skills },
+    { href: '#contact', label: t.nav.contact },
+  ];
+
+  const languages: { code: Language; label: string }[] = [
+    { code: 'zh', label: '繁中' },
+    { code: 'en', label: 'EN' },
+    { code: 'ja', label: '日本語' },
+    { code: 'ko', label: '한국어' },
   ];
 
   return (
@@ -44,15 +54,58 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+
+            {/* Language Switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setShowLangMenu(!showLangMenu)}
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-all duration-300 font-medium tracking-widest uppercase"
+              >
+                <Globe size={16} />
+                {languages.find(l => l.code === language)?.label}
+              </button>
+              
+              {showLangMenu && (
+                <div className="absolute right-0 mt-4 py-2 w-32 bg-black/90 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setLanguage(lang.code);
+                        setShowLangMenu(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 text-xs transition-colors ${
+                        language === lang.code ? 'text-teal-400 bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white p-2 hover:bg-white/5 rounded-full transition-colors"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-4 lg:hidden">
+            <button
+              onClick={() => {
+                const currentIndex = languages.findIndex(l => l.code === language);
+                const nextIndex = (currentIndex + 1) % languages.length;
+                setLanguage(languages[nextIndex].code);
+              }}
+              className="text-white p-2 hover:bg-white/5 rounded-full transition-colors"
+              title="Switch Language"
+            >
+              <Globe size={20} />
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white p-2 hover:bg-white/5 rounded-full transition-colors"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -74,6 +127,24 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+            
+            {/* Mobile Language Selection */}
+            <div className="flex gap-4 mt-8 pt-8 border-t border-white/10">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => {
+                    setLanguage(lang.code);
+                    setIsOpen(false);
+                  }}
+                  className={`text-sm ${
+                    language === lang.code ? 'text-teal-400' : 'text-gray-500'
+                  }`}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
           </div>
         )}
       </div>

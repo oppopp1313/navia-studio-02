@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Play, Smartphone, Globe, X, ExternalLink, Trophy } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('films');
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const { t } = useLanguage();
 
   const films = [
     {
@@ -134,7 +136,7 @@ const Portfolio = () => {
     { 
       name: "Caloo", 
       type: "AI Calorie App", 
-      status: "Live", 
+      status: t.portfolio.status.live, 
       icon: Smartphone,
       color: "from-orange-500/20 to-red-500/20",
       url: "https://apps.apple.com/tw/app/caloo-%E6%A5%B5%E7%B0%A1%E5%8D%A1%E8%B7%AF%E9%87%8C%E7%B4%80%E9%8C%84/id6742639699",
@@ -143,7 +145,7 @@ const Portfolio = () => {
     { 
       name: "QuoTodo", 
       type: "Productivity App", 
-      status: "Live", 
+      status: t.portfolio.status.live, 
       icon: Globe,
       color: "from-blue-500/20 to-indigo-500/20",
       url: "https://apps.apple.com/us/app/quotodo/id6743733598?l=zh-Hant-TW",
@@ -152,7 +154,7 @@ const Portfolio = () => {
     { 
       name: "Vibby", 
       type: "Web App (Music×Task)", 
-      status: "Live", 
+      status: t.portfolio.status.live, 
       icon: Globe,
       color: "from-purple-500/20 to-pink-500/20",
       url: "#",
@@ -161,7 +163,7 @@ const Portfolio = () => {
     { 
       name: "Hualien Nomad", 
       type: "Platform / Hackathon Winner", 
-      status: "Awarded", 
+      status: t.portfolio.status.awarded, 
       icon: Globe,
       color: "from-teal-500/20 to-emerald-500/20",
       url: "https://hualian-travel.lovable.app",
@@ -170,7 +172,7 @@ const Portfolio = () => {
     { 
       name: "Deco AI", 
       type: "AI Interior Design", 
-      status: "Live", 
+      status: t.portfolio.status.live, 
       icon: Globe,
       color: "from-amber-500/20 to-orange-500/20",
       url: "https://deco-ai.com/",
@@ -179,7 +181,7 @@ const Portfolio = () => {
     { 
       name: "Planny AI", 
       type: "AI Planner", 
-      status: "Live", 
+      status: t.portfolio.status.live, 
       icon: Globe,
       color: "from-sky-500/20 to-blue-500/20",
       url: "https://planny-ai.site/",
@@ -188,7 +190,7 @@ const Portfolio = () => {
     { 
       name: "Cut AI", 
       type: "AI Video Tool", 
-      status: "Live", 
+      status: t.portfolio.status.live, 
       icon: Globe,
       color: "from-red-500/20 to-pink-500/20",
       url: "https://cut-ai.app/",
@@ -197,7 +199,7 @@ const Portfolio = () => {
     { 
       name: "Outfit AI", 
       type: "AI Fashion Assistant", 
-      status: "Coming Soon", 
+      status: t.portfolio.status.comingSoon, 
       icon: Smartphone,
       color: "from-zinc-500/20 to-zinc-700/20",
       url: "#",
@@ -206,7 +208,7 @@ const Portfolio = () => {
     { 
       name: "Namecard AI", 
       type: "AI Networking Tool", 
-      status: "Coming Soon", 
+      status: t.portfolio.status.comingSoon, 
       icon: Smartphone,
       color: "from-zinc-500/20 to-zinc-700/20",
       url: "#",
@@ -221,16 +223,19 @@ const Portfolio = () => {
   ];
 
   const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'Live':
-      case 'Live/POC': return 'bg-white text-black';
-      case 'Launch prep': return 'bg-gray-400 text-black';
-      case 'In progress': return 'bg-gray-600 text-white';
-      case 'Awarded': return 'bg-gray-200 text-black';
-      case 'Coming Soon': return 'bg-teal-900/40 text-teal-400 border border-teal-500/30';
-      default: return 'bg-gray-700 text-white';
-    }
+    if (status === t.portfolio.status.live || status === 'Live/POC') return 'bg-white text-black';
+    if (status === 'Launch prep') return 'bg-gray-400 text-black';
+    if (status === 'In progress') return 'bg-gray-600 text-white';
+    if (status === t.portfolio.status.awarded) return 'bg-gray-200 text-black';
+    if (status === t.portfolio.status.comingSoon) return 'bg-teal-900/40 text-teal-400 border border-teal-500/30';
+    return 'bg-gray-700 text-white';
   };
+
+  const tabs = [
+    { id: 'films', label: t.portfolio.tabs.films },
+    { id: 'apps', label: t.portfolio.tabs.apps },
+    { id: 'tech', label: t.portfolio.tabs.tech }
+  ];
 
   return (
     <section id="portfolio" className="py-32 bg-[#0a0a0a] border-t border-white/5">
@@ -238,20 +243,16 @@ const Portfolio = () => {
         <div className="flex flex-col lg:flex-row justify-between items-baseline mb-24 gap-12">
           <div className="max-w-2xl">
             <h2 className="text-sm tracking-[0.3em] uppercase text-teal-400 mb-6 font-medium">
-              Portfolio
+              {t.portfolio.tag}
             </h2>
             <h3 className="text-4xl md:text-6xl font-serif text-white">
-              精選作品庫
+              {t.portfolio.title}
             </h3>
           </div>
 
           {/* Tab Navigation */}
           <div className="flex flex-wrap gap-8 border-b border-white/10 pb-4 w-full lg:w-auto">
-            {[
-              { id: 'films', label: 'AI Films' },
-              { id: 'apps', label: 'Applications' },
-              { id: 'tech', label: 'Tech Projects' }
-            ].map((tab) => (
+            {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
@@ -338,7 +339,7 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {apps.map((app, index) => {
               const IconComponent = app.icon;
-              const isComingSoon = app.status === 'Coming Soon';
+              const isComingSoon = app.status === t.portfolio.status.comingSoon;
               const isLinkable = app.url && app.url !== '#';
               
               const CardContent = (
@@ -347,7 +348,7 @@ const Portfolio = () => {
                   <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900/50 flex items-center justify-center">
                     {isComingSoon ? (
                       <div className="text-zinc-600 font-serif text-2xl tracking-widest uppercase opacity-40">
-                        開發中
+                        {t.portfolio.status.developing}
                       </div>
                     ) : (
                       <>

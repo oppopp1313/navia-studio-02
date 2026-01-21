@@ -1,33 +1,11 @@
 import React from 'react';
 import { Video, Code, BarChart3, PenTool } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Services = () => {
-  const services = [
-    {
-      icon: Video,
-      title: 'AI 影像製作',
-      subtitle: 'Creative Cinematic Productions',
-      description: '運用最新 AI 影像技術（Runway, Kling, Luma），製作具備電影感的高品質廣告短片與視覺內容。'
-    },
-    {
-      icon: Code,
-      title: 'AI 產品開發',
-      subtitle: 'Intelligent App Solutions',
-      description: '開發整合 LLM 與 RAG 技術的智能應用程式，為企業與個人量身打造 AI 賦能的工作流。'
-    },
-    {
-      icon: BarChart3,
-      title: '資料與 AI 顧問',
-      subtitle: 'Strategic Data Intelligence',
-      description: '提供深度數據分析解決方案與企業 AI 轉型諮詢，協助客戶在數據洪流中挖掘核心價值。'
-    },
-    {
-      icon: PenTool,
-      title: '數位品牌敘事',
-      subtitle: 'Modern Brand Storytelling',
-      description: '結合 AI 創意與設計美學，創作出引人入勝且具備現代感的品牌故事與視覺設計。'
-    }
-  ];
+  const { t } = useLanguage();
+  
+  const icons = [Video, Code, BarChart3, PenTool];
 
   return (
     <section id="services" className="py-32 bg-[#0a0a0a] border-t border-white/5">
@@ -35,21 +13,21 @@ const Services = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div className="max-w-2xl">
             <h2 className="text-sm tracking-[0.3em] uppercase text-teal-400 mb-6 font-medium">
-              Services
+              {t.services.tag}
             </h2>
             <h3 className="text-4xl md:text-6xl font-serif text-white leading-tight">
-              探索 AI 與人類創意<br />
-              <span className="text-zinc-500 italic">交織的可能性</span>
+              {t.services.title}<br />
+              <span className="text-zinc-500 italic">{t.services.subtitle}</span>
             </h3>
           </div>
-          <p className="text-zinc-400 text-lg max-w-sm mb-2">
-            提供全方位的 AI 創意與技術服務，從概念發想到產品實現，打破傳統創作的邊界。
+          <p className="text-zinc-400 text-lg max-w-sm mb-2 whitespace-pre-line">
+            {t.services.description}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
+          {t.services.items.map((service, index) => {
+            const IconComponent = icons[index];
             return (
               <div
                 key={index}

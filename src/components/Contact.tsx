@@ -1,9 +1,10 @@
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Youtube, MessageCircle, Linkedin, Send } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const { t } = useLanguage();
 
   const socialLinks = [
     { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@NaviaStudio' },
@@ -25,20 +26,20 @@ const Contact = () => {
         <div className="flex flex-col lg:flex-row gap-24">
           <div className="lg:w-1/2">
             <h2 className="text-sm tracking-[0.3em] uppercase text-teal-400 mb-8 font-medium">
-              Contact
+              {t.contact.tag}
             </h2>
             <h3 className="text-5xl md:text-7xl font-serif text-white mb-12 leading-tight">
-              Let's craft the <br />
-              <span className="text-zinc-500 italic">Future of Visuals.</span>
+              {t.contact.title} <br />
+              <span className="text-zinc-500 italic">{t.contact.subtitle}</span>
             </h3>
             
-            <p className="text-xl text-zinc-400 mb-16 max-w-md leading-relaxed">
-              準備好將您的創意想法轉化為現實了嗎？無論是電影感十足的 AI 影像，還是前衛的智能應用，我們都在這裡為您實現。
+            <p className="text-xl text-zinc-400 mb-16 max-w-md leading-relaxed whitespace-pre-line">
+              {t.contact.description}
             </p>
 
             <div className="space-y-12">
               <div>
-                <h4 className="text-[10px] tracking-[0.3em] uppercase text-zinc-500 mb-4 font-bold">Email Inquiry</h4>
+                <h4 className="text-[10px] tracking-[0.3em] uppercase text-zinc-500 mb-4 font-bold">{t.contact.emailInquiry}</h4>
                 <a
                   href="mailto:oppopp1313@gmail.com"
                   className="text-2xl md:text-3xl font-serif text-white hover:text-teal-400 transition-colors duration-500 underline underline-offset-8 decoration-white/10"
@@ -48,7 +49,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <h4 className="text-[10px] tracking-[0.3em] uppercase text-zinc-500 mb-4 font-bold">Social Presence</h4>
+                <h4 className="text-[10px] tracking-[0.3em] uppercase text-zinc-500 mb-4 font-bold">{t.contact.socialPresence}</h4>
                 <div className="flex gap-6">
                   {socialLinks.map((link, index) => {
                     const IconComponent = link.icon;
@@ -72,14 +73,14 @@ const Contact = () => {
 
           <div className="lg:w-1/2">
             <div className="bg-white/[0.02] border border-white/5 p-12 lg:p-16 relative">
-              <h3 className="text-2xl font-serif text-white mb-10">發送合作請求</h3>
+              <h3 className="text-2xl font-serif text-white mb-10">{t.contact.formTitle}</h3>
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="relative group">
                   <input
                     type="text"
                     required
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700"
-                    placeholder="您的姓名"
+                    placeholder={t.contact.name}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
@@ -91,7 +92,7 @@ const Contact = () => {
                     type="email"
                     required
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700"
-                    placeholder="電子郵件"
+                    placeholder={t.contact.email}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
@@ -103,7 +104,7 @@ const Contact = () => {
                     required
                     rows={4}
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-teal-400 focus:outline-none transition-all duration-500 placeholder:text-zinc-700 resize-none"
-                    placeholder="專案構思與需求..."
+                    placeholder={t.contact.message}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />
@@ -115,7 +116,7 @@ const Contact = () => {
                   className="group relative inline-flex items-center justify-center px-10 py-5 bg-white text-black font-bold tracking-widest uppercase text-xs overflow-hidden transition-all duration-300"
                 >
                   <span className="relative z-10 flex items-center gap-3">
-                    啟動對話 <Send size={14} />
+                    {t.contact.submit} <Send size={14} />
                   </span>
                   <div className="absolute inset-0 bg-teal-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </button>
