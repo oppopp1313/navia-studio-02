@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage, Language } from '../i18n/LanguageContext';
 
@@ -54,6 +55,13 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+
+            <Link
+              to="/caloo-support"
+              className="text-sm text-teal-400/80 hover:text-teal-400 transition-all duration-300 font-medium tracking-widest uppercase"
+            >
+              {t.calooSupport.nav}
+            </Link>
 
             {/* Language Switcher */}
             <div className="relative">
@@ -127,6 +135,14 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+
+            <Link
+              to="/caloo-support"
+              className="text-3xl font-serif text-teal-400/80 hover:text-teal-400 transition-all duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              {t.calooSupport.nav}
+            </Link>
             
             {/* Mobile Language Selection */}
             <div className="flex gap-4 mt-8 pt-8 border-t border-white/10">
