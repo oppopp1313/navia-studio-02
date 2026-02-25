@@ -114,6 +114,56 @@ export const translations = {
       email: '電子郵件',
       message: '專案構思與需求...',
       submit: '啟動對話',
+    },
+    calooSupport: {
+      nav: 'Caloo 客服',
+      heroTag: 'AI-Powered Calorie Tracking',
+      title: 'Caloo',
+      heroLine: '讓卡路里追蹤，\n回歸最簡單的樣子。',
+      heroDesc: '拍下餐點，AI 即時分析。無需手動輸入，無需複雜選單。極簡設計，專注你的健康目標。',
+      appStore: '前往 App Store 下載',
+      free: '完全免費',
+      noAds: '無廣告',
+      rating: '5.0 評分',
+      intro: {
+        tag: 'Why Caloo',
+        title: '重新定義飲食記錄',
+        features: [
+          {
+            title: 'AI 相片辨識',
+            subtitle: 'Photo Recognition',
+            desc: '對準餐點按下快門，AI 秒速辨識食物並估算熱量與三大營養素，無需手動搜尋資料庫。',
+          },
+          {
+            title: '極簡無干擾',
+            subtitle: 'Minimal Design',
+            desc: '介面零雜訊、零負擔。不會被複雜的圖表與選單淹沒，讓你專注於培養健康習慣。',
+          },
+          {
+            title: '智慧飲食建議',
+            subtitle: 'Smart Suggestions',
+            desc: 'AI 依據你的個人目標，提供客製化的餐點與攝取建議，陪你走好每一步。',
+          },
+        ],
+      },
+      form: {
+        tag: 'Feedback',
+        title: '告訴我們你的想法',
+        desc: '遇到問題或有任何建議？我們重視每一個聲音。',
+        name: '您的姓名',
+        email: '電子郵件',
+        category: '問題類型',
+        categories: {
+          bug: '錯誤回報',
+          feature: '功能建議',
+          account: '帳號問題',
+          other: '其他',
+        },
+        message: '請詳細描述您的問題或建議...',
+        submit: '送出回饋',
+        success: '感謝您的回饋！我們會盡快回覆。',
+      },
+      backHome: '返回首頁',
     }
   },
   en: {
@@ -231,6 +281,56 @@ export const translations = {
       email: 'Email Address',
       message: 'Project ideas and requirements...',
       submit: 'Start Conversation',
+    },
+    calooSupport: {
+      nav: 'Caloo Support',
+      heroTag: 'AI-Powered Calorie Tracking',
+      title: 'Caloo',
+      heroLine: 'Calorie tracking,\nmade effortless.',
+      heroDesc: 'Snap your meal, AI does the rest. No manual input, no complicated menus. Minimalist design, focused on your health goals.',
+      appStore: 'Download on App Store',
+      free: 'Free',
+      noAds: 'No Ads',
+      rating: '5.0 Rating',
+      intro: {
+        tag: 'Why Caloo',
+        title: 'Redefining Food Logging',
+        features: [
+          {
+            title: 'AI Photo Recognition',
+            subtitle: 'Photo Recognition',
+            desc: 'Point your camera and snap — AI instantly identifies food and estimates calories and macros. No manual database searching.',
+          },
+          {
+            title: 'Minimal & Distraction-Free',
+            subtitle: 'Minimal Design',
+            desc: 'Zero clutter, zero overwhelm. No complex charts or menus drowning your focus. Just healthy habit-building.',
+          },
+          {
+            title: 'Smart Diet Suggestions',
+            subtitle: 'Smart Suggestions',
+            desc: 'AI provides personalized meal and intake recommendations based on your goals, guiding every step of your journey.',
+          },
+        ],
+      },
+      form: {
+        tag: 'Feedback',
+        title: 'Share your thoughts',
+        desc: 'Having an issue or a suggestion? Every voice matters to us.',
+        name: 'Your Name',
+        email: 'Email Address',
+        category: 'Issue Type',
+        categories: {
+          bug: 'Bug Report',
+          feature: 'Feature Request',
+          account: 'Account Issue',
+          other: 'Other',
+        },
+        message: 'Please describe your issue or suggestion in detail...',
+        submit: 'Submit Feedback',
+        success: 'Thank you for your feedback! We\'ll respond shortly.',
+      },
+      backHome: 'Back to Home',
     }
   },
   ja: {
@@ -348,6 +448,56 @@ export const translations = {
       email: 'メールアドレス',
       message: 'プロジェクトの構想や要件...',
       submit: '対話を開始',
+    },
+    calooSupport: {
+      nav: 'Caloo サポート',
+      heroTag: 'AI-Powered Calorie Tracking',
+      title: 'Caloo',
+      heroLine: 'カロリー記録を、\nもっとシンプルに。',
+      heroDesc: '食事を撮影するだけで、AIが即座に分析。手入力不要、複雑なメニュー不要。ミニマルなデザインで、健康目標に集中。',
+      appStore: 'App Store でダウンロード',
+      free: '完全無料',
+      noAds: '広告なし',
+      rating: '5.0 評価',
+      intro: {
+        tag: 'Why Caloo',
+        title: '食事記録を再定義する',
+        features: [
+          {
+            title: 'AI写真認識',
+            subtitle: 'Photo Recognition',
+            desc: 'カメラを向けてシャッターを押すだけ。AIが即座に食品を識別し、カロリーと栄養素を推定。データベース検索不要。',
+          },
+          {
+            title: 'ミニマル＆集中',
+            subtitle: 'Minimal Design',
+            desc: 'ゼロノイズ、ゼロ負荷。複雑なグラフやメニューに埋もれない。健康的な習慣づくりに集中。',
+          },
+          {
+            title: 'スマート食事提案',
+            subtitle: 'Smart Suggestions',
+            desc: 'AIがあなたの目標に基づいて、パーソナライズされた食事と摂取量の提案を提供。一歩一歩をガイド。',
+          },
+        ],
+      },
+      form: {
+        tag: 'Feedback',
+        title: 'ご意見をお聞かせください',
+        desc: '問題やご提案がありますか？すべての声を大切にしています。',
+        name: 'お名前',
+        email: 'メールアドレス',
+        category: '問題の種類',
+        categories: {
+          bug: 'バグ報告',
+          feature: '機能リクエスト',
+          account: 'アカウントの問題',
+          other: 'その他',
+        },
+        message: '問題やご提案を詳しくお書きください...',
+        submit: 'フィードバックを送信',
+        success: 'フィードバックありがとうございます！速やかにご返信いたします。',
+      },
+      backHome: 'ホームに戻る',
     }
   },
   ko: {
@@ -465,6 +615,56 @@ export const translations = {
       email: '이메일 주소',
       message: '프로젝트 아이디어 및 요구 사항...',
       submit: '대화 시작',
+    },
+    calooSupport: {
+      nav: 'Caloo 지원',
+      heroTag: 'AI-Powered Calorie Tracking',
+      title: 'Caloo',
+      heroLine: '칼로리 기록을,\n가장 간단하게.',
+      heroDesc: '식사를 찍으면 AI가 즉시 분석. 수동 입력 불필요, 복잡한 메뉴 불필요. 미니멀 디자인으로 건강 목표에 집중.',
+      appStore: 'App Store에서 다운로드',
+      free: '완전 무료',
+      noAds: '광고 없음',
+      rating: '5.0 평점',
+      intro: {
+        tag: 'Why Caloo',
+        title: '식단 기록을 재정의하다',
+        features: [
+          {
+            title: 'AI 사진 인식',
+            subtitle: 'Photo Recognition',
+            desc: '카메라를 향해 셔터를 누르기만 하면 AI가 즉시 음식을 식별하고 칼로리와 영양소를 추정합니다. 데이터베이스 검색 불필요.',
+          },
+          {
+            title: '미니멀 & 집중',
+            subtitle: 'Minimal Design',
+            desc: '노이즈 제로, 부담 제로. 복잡한 차트와 메뉴에 묻히지 않고 건강한 습관 형성에 집중.',
+          },
+          {
+            title: '스마트 식단 제안',
+            subtitle: 'Smart Suggestions',
+            desc: 'AI가 개인 목표에 맞춰 맞춤형 식사 및 섭취량 제안을 제공하여 모든 단계를 가이드합니다.',
+          },
+        ],
+      },
+      form: {
+        tag: 'Feedback',
+        title: '의견을 들려주세요',
+        desc: '문제나 제안이 있으신가요? 모든 목소리를 소중히 여깁니다.',
+        name: '이름',
+        email: '이메일 주소',
+        category: '문제 유형',
+        categories: {
+          bug: '버그 신고',
+          feature: '기능 요청',
+          account: '계정 문제',
+          other: '기타',
+        },
+        message: '문제나 제안을 자세히 설명해 주세요...',
+        submit: '피드백 제출',
+        success: '피드백 감사합니다! 빠르게 답변 드리겠습니다.',
+      },
+      backHome: '홈으로 돌아가기',
     }
   }
 };
